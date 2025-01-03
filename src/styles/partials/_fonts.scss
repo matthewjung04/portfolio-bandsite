@@ -1,0 +1,74 @@
+@font-face {
+  font-family: Avenir-Next-Regular;
+  src: url('./assets/Fonts/Alternatives/AvenirNextLTPro.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Avenir-Next-Demi;
+  src: url('./assets/Fonts/Alternatives/AvenirNextLTProDemi.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: Avenir-Next-Bold;
+  src: url('./assets/Fonts/Alternatives/AvenirNextLTProBold.ttf') format('truetype');
+}
+
+@mixin page-header-font {
+  font-family: Avenir-Next-Bold;
+  font-size: 60px;
+  line-height: 68px;
+}
+
+@mixin section-header-font {
+  font-family: Avenir-Next-Bold;
+  font-size: 36px;
+  line-height: 44px;
+}
+
+@mixin subheader-font {
+  font-family: Avenir-Next-Demi;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@mixin body-font {
+  font-family: Avenir-Next-Regular;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+@mixin footer-font {
+  font-family: Avenir-Next-Regular;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin labels-buttons-font {
+  font-family: Avenir-Next-Bold;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+@mixin mobile-header-font {
+  font-family: Avenir-Next-Bold;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+@mixin mobile-subheader-font {
+  font-family: Avenir-Next-Demi;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+@mixin mobile-body-font {
+  font-family: Avenir-Next-Regular;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+@mixin mobile-labels-buttons-font {
+  font-family: Avenir-Next-Bold;
+  font-size: 10px;
+  line-height: 20px;
+}

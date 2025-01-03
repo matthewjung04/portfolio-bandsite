@@ -1,4 +1,19 @@
+@use './styles/partials/colors' as *;
+@use './styles/partials/fonts' as *;
+@use './styles/partials/mixins' as *;
+@use './styles/partials/variables' as *;
+
 body {
+  background-color: $White;
+
+  @include body-font;
+  color: $Light-Black;
+
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+
+  @include tablet {
+    @include mobile-body-font;
+  }
 }
