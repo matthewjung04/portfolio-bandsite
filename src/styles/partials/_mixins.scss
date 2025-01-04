@@ -13,3 +13,9 @@
       @content;
   }
 }
+
+@mixin header-links {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}

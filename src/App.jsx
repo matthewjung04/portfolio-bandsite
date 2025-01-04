@@ -6,14 +6,12 @@ import ShowsPage from './pages/ShowsPage/ShowsPage'
 import './App.scss'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route to='/' element={<HomePage />}/>
-        <Route to='/shows' element={<ShowsPage />}/>
+        <Route path='/' element={<HomePage />}/>
+        <Route path='/shows' element={<ShowsPage />}/>
       </Routes>
       <Footer />
     </BrowserRouter>
