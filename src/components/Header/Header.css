@@ -1,0 +1,113 @@
+@font-face {
+  font-family: Avenir-Next-Regular;
+  src: url("./assets/Font/Alternatives/AvenirNextLTPro.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Avenir-Next-Demi;
+  src: url("./assets/Font/Alternatives/AvenirNextLTProDemi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: Avenir-Next-Bold;
+  src: url("./assets/Font/Alternatives/AvenirNextLTProBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+.header {
+  background-color: #323232;
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__logo {
+  width: 7.5rem;
+  padding-bottom: 1rem;
+}
+.header__nav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.header__nav__link--active {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  font-family: Avenir-Next-Bold;
+  border-bottom: 3px solid #FFFFFF;
+}
+.header__nav__link--inactive {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 0.5rem;
+  color: #E1E1E1;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .header {
+    padding: 2rem 2.5rem 0 2.5rem;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .header__logo {
+    padding-right: 3rem;
+    padding-bottom: 1.4rem;
+  }
+  .header__nav {
+    width: 25vw;
+    align-self: flex-start;
+    justify-content: space-around;
+  }
+  .header__nav__link--active {
+    width: auto;
+    padding: 0 0.25rem 1.5rem 0.25rem;
+  }
+  .header__nav__link--inactive {
+    width: auto;
+    padding: 0 0.25rem 1.5rem 0.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .header {
+    padding: 1.55rem 6rem 0 6rem;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+  .header__logo {
+    padding-right: 2rem;
+    padding-bottom: 1.3rem;
+  }
+  .header__nav {
+    width: 12vw;
+    align-self: flex-start;
+    justify-content: space-around;
+  }
+  .header__nav__link--active {
+    width: auto;
+    padding: 0 0.25rem 1.5rem 0.25rem;
+  }
+  .header__nav__link--inactive {
+    width: auto;
+    padding: 0 0.25rem 1.5rem 0.25rem;
+  }
+}
+
+.link-hover {
+  font-family: Avenir-Next-Regular;
+  color: #FFFFFF;
+  padding: 0 0.25rem;
+  border-bottom: 3px solid #FFFFFF;
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .link-hover {
+    padding: 0 0.25rem 1rem 0.25rem;
+  }
+}
+@media (min-width: 1280px) {
+  .link-hover {
+    padding: 0 0.25rem 1.5rem 0.25rem;
+  }
+}/*# sourceMappingURL=Header.css.map */
