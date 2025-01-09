@@ -2,3 +2,108 @@
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
+
+
+.posted-comment {
+  width: 80vw;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-top: 1px solid $Mercury;
+  border-bottom: 1px solid $Mercury;
+
+  display: flex;
+  flex-direction: row;
+  
+  &__image {
+    @include mobile_avatar;
+    background-color: $Mercury;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    width: 80%;
+    padding-left: 1rem;
+
+    &__head {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+      margin: 0;
+      padding-bottom: 1rem;
+
+      &--name {
+        @include mobile-labels-buttons-font;
+        color: $Light-Black;
+        margin: 0;
+      }
+
+      &--date {
+        @extend .posted-comment__text__head--name;
+        color: $Silver;
+      }
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: row;
+      padding-top: 16px;
+
+      &__button {
+        background-color: $White;
+        margin-right: 48px;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+
+        &__counter {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  @include tablet{
+    &__image {
+      @include desktop_tablet_avatar;
+      background-color: $Mercury;
+    }
+
+    &__text {
+        padding-left: 2.25rem;
+
+        &__head {
+          &--name {
+            font-size: 14px;
+          }
+
+          &--date {
+            font-size: 14px;
+          }
+        }
+    }
+  }
+
+  @include desktop {
+    &__image {
+      @include desktop_tablet_avatar;
+      background-color: $Mercury;
+    }
+
+    &__text {
+      padding-left: 2.25rem;
+
+      &__head {
+        &--name {
+          font-size: 14px;
+        }
+
+        &--date {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

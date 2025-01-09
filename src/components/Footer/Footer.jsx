@@ -7,7 +7,7 @@ import './Footer.scss'
 function Footer() {
   return (
     <footer className="footer">
-      <section class='footer-tablet-desktop'>
+      <section className='footer-tablet-desktop'>
         <article>
           <div className="footer__header">
             <h2 className="footer__header__title">Get in Touch</h2>

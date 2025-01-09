@@ -311,3 +311,149 @@
     }
   }
 }
+
+.comments {
+  &__title {
+    @include mobile-header-font;
+    padding: 1rem;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &__main {
+    padding: 1rem;
+    padding-top: 0;
+    padding-bottom: 1.5rem;
+
+    display: flex;
+    flex-direction: row;
+
+    &__photo {
+      @include mobile_avatar;
+    }
+
+    &__form {
+      padding-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      &__label {
+        @include mobile-labels-buttons-font;
+        line-height: 20px;
+        padding-bottom: 4px;
+
+        &--text {
+          @extend .comments__main__form__label;
+          padding-top: 1rem;
+        }
+      }
+
+      &__input {
+        @include mobile-body-font;
+        width: auto;
+        height: 36px;
+        padding-left: 12px;
+        border: 1px solid $Mercury;
+        border-radius: 4px;
+        background-color: $Alabaster;
+
+        &--text {
+          @extend .comments__main__form__input;
+          height: auto;
+          padding-top: 12px;
+        }
+      }
+
+      &__button {
+        @include mobile-labels-buttons-font;
+        height: 40px;
+        border-radius: 4px;
+        background-color: $Light-Black;
+        color: $White;
+        cursor: pointer;
+
+        padding: 0;
+        margin-top: 1rem;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  @include tablet {
+    padding: 2.25rem;
+
+    &__title {
+      @include section-header-font;
+    }
+
+    &__main {
+      padding: 2.25rem;
+      padding-top: 0;
+      padding-bottom: 3rem;
+
+      &__photo {
+        @include desktop_tablet_avatar;
+      }
+
+      &__form {
+        padding-left: 2.25rem;
+
+        &__button {
+          @include labels-buttons-font
+        }
+      }
+    }
+  }
+
+  @include desktop {
+    padding: 2.25rem;
+
+    &__title {
+      @include section-header-font;
+      padding-left: 100px;
+    }
+
+    &__main {
+      padding: 30vw;
+      padding-top: 0;
+      padding-bottom: 3rem;
+      width: 50%;  
+
+      &__photo {
+        @include desktop_tablet_avatar;
+      }
+
+      &__form {
+        padding-left: 2.25rem;
+
+        &__button {
+          @include labels-buttons-font
+        }
+      }
+    } 
+  }
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 1rem;
+  padding-top: 0;
+  padding-bottom: 1.5rem;
+
+  @include tablet {
+    padding: 2.25rem;
+  }
+
+  @include desktop {
+    padding: 2.25rem;
+  }
+}
+
+.comment__error {
+  outline: 1px solid $error-state;
+}
