@@ -5,7 +5,6 @@
 
 
 .posted-comment {
-  width: 80vw;
   padding-top: 1rem;
   padding-bottom: 1rem;
   border-top: 1px solid $Mercury;
@@ -66,6 +65,8 @@
   }
 
   @include tablet{
+    width: 80vw;
+
     &__image {
       @include desktop_tablet_avatar;
       background-color: $Mercury;
@@ -87,6 +88,9 @@
   }
 
   @include desktop {
+    margin-left: 12rem;
+    width: 50vw;
+
     &__image {
       @include desktop_tablet_avatar;
       background-color: $Mercury;

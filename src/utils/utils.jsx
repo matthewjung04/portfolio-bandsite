@@ -10,7 +10,7 @@ export class BandSiteApi {
   constructor() {
     this.baseUrl = import.meta.env.URL || 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
 
-    const key = import.meta.envAPI_KEY || '78c8e98b-4a2b-4a04-ad0a-87a7b0b979f6';
+    const key = import.meta.envAPI_KEY || '2a144518-c839-4362-8e6c-6c0c2e073bd7';
     this.apiKey = `/?api_key=${key}`;
   }
 
@@ -32,12 +32,12 @@ export class BandSiteApi {
   }
 
   /* PUT /comments/:id/like */
-  async likeComment(comment) {
-    const res = await axios.put(`${this.baseUrl}/comments/${comment.id}/like${this.apiKey}`, comment.likes++);
+  async likeComment(commentId) {
+    const res = await axios.put(`${this.baseUrl}comments/${commentId}/like${this.apiKey}`);
   }
   
   /* DELETE /comments/:id */
-  async deleteComment(comment) {
-    const res = await axios.delete(`${this.baseUrl}/comments/${comment.id + this.apiKey}`)
+  async deleteComment(commentId) {
+    const res = await axios.delete(`${this.baseUrl}comments/${commentId}${this.apiKey}`)
   }
 }

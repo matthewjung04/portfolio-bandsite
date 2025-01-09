@@ -15,18 +15,147 @@ import Comments from '../../components/Comments/Comments'
 import './HomePage.scss'
 
 function HomePage() {
-  const [commentsList, setCommentsList] = useState(null)
+  const [commentsList, setCommentsList] = useState(null);
+  const [postedName, setPostedName] = useState(null);
+  const [postedMessage, setPostedMessage] = useState(null);
+  const [hasPosted, setHasPosted] = useState(null);
+  const [confirmPost, setConfirmPost] = useState(null);
+  const [commentID, setCommentID] = useState(null);
+  const [hasLike, setHasLike] = useState(null);
+  const [confirmLike, setConfirmLike] = useState(null);
+  const [hasDeleted, setHasDeleted] = useState(null);
+  const [confirmDeleted, setConfirmDeleted] = useState(null);
+
+  const compare = (a,b) => {
+    if (a.timestamp > b.timestamp) {
+      return -1;
+    } else if (a.timestamp < b.timestamp) {
+      return 1
+    }
+  }
 
   useEffect(() => {
     const fetchComments = async () => {
       let BandSiteGet = new BandSiteApi();
-      let commentlist = await BandSiteGet.getComments();
-      setCommentsList(commentlist);
+      let commentList = await BandSiteGet.getComments();
+      setCommentsList(commentList.sort(compare));
     }
     fetchComments();
   },[])
 
-  console.log(commentsList)
+  const formHandler = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const message = e.target.message.value;
+
+    if (name.length>2 && message.split(" ").length>=2) {
+      setPostedName(name);
+      setPostedMessage(message);
+      
+      e.target.reset();
+      setHasPosted(true);
+
+    } else if (name.length<=2) {
+      const nameInput = e.target.querySelector('input');
+      nameInput.classList.add('comment-error');
+      alert('Name must be have more than 2 characters')
+
+    } else if (message.split(" ").length<2) {
+      const messageInput = e.target.querySelector('textarea');
+      messageInput.classList.add('comment-error');
+      alert('Comment must contain at least 2 words')
+    } 
+  }
+
+  const inputHandler = (e) => {
+    const errorClass = e.target.className;
+    if(errorClass.includes('comment-error')) {
+      e.target.classList.remove('comment-error')
+    }
+  }
+
+  useEffect(() => {
+    const postNewComment = async () => {
+      if(hasPosted) {
+        const newComment = {
+          "name": postedName,
+          "comment": postedMessage
+        }
+        let BandSitePost = new BandSiteApi();
+        let postCommentApi = await BandSitePost.postComment(newComment);
+  
+        setHasPosted(null);
+        setConfirmPost(true);
+      }
+    }
+    postNewComment();
+  },[hasPosted])
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      let BandSiteGet = new BandSiteApi();
+      let commentList = await BandSiteGet.getComments();
+      setCommentsList(commentList.sort(compare))
+      setConfirmPost(null);
+    }
+    fetchComments();
+  },[confirmPost])
+
+  const likeHandler = (e) => {
+    setCommentID(e.target.id);
+    setHasLike(true);
+  }
+
+  useEffect(() => {
+    const fetchLikes = async () => {
+      if(hasLike) {
+        let BandSitePut = new BandSiteApi();
+        let likeCommentApi = BandSitePut.likeComment(commentID)
+
+        setHasLike(null)
+        setConfirmLike(true)
+      }
+    }
+    fetchLikes();
+  },[hasLike])
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      let BandSiteGet = new BandSiteApi();
+      let commentList = await BandSiteGet.getComments();
+      setCommentsList(commentList.sort(compare))
+      setConfirmLike(null);
+    }
+    fetchComments();
+  },[confirmLike])
+
+  const deleteHandler = (e) => {
+    setCommentID(e.target.id);
+    setHasDeleted(true);
+  }
+
+  useEffect(() => {
+    const fetchDeleted = async () => {
+      if(hasDeleted) {
+        let BandSiteDelete = new BandSiteApi();
+        let deleteCommentApi = BandSiteDelete.deleteComment(commentID);
+  
+        setHasDeleted(null);
+        setConfirmDeleted(true);
+      }
+    }
+    fetchDeleted();
+  },[hasDeleted])
+
+  useEffect(() => {
+    const fetchComments = async () => {
+      let BandSiteGet = new BandSiteApi();
+      let commentList = await BandSiteGet.getComments();
+      setCommentsList(commentList.sort(compare))
+      setConfirmDeleted(null);
+    }
+    fetchComments();
+  },[confirmDeleted])
 
   return (
     <section>
@@ -87,12 +216,12 @@ function HomePage() {
         <h1 className="comments__title">Join The Conversation</h1>
         <div className="comments__main">
           <img className="comments__main__photo" src={avatarPhoto} alt="avatar-photo"/>
-          <form className="comments__main__form" id="myForm">
+          <form className="comments__main__form" id="myForm" onSubmit={formHandler}>
             <label className="comments__main__form__label" htmlFor="name">NAME</label>
-            <input type="text" className="comments__main__form__input" name="name" placeholder="Enter your name" required/>
+            <input type="text" className="comments__main__form__input" name="name" placeholder="Enter your name" onKeyDown={inputHandler} required/>
 
             <label className="comments__main__form__label--text" htmlFor="message">COMMENT</label>
-            <textarea className="comments__main__form__input--text" name="message" rows="4" placeholder="Add a new comment" required></textarea>
+            <textarea className="comments__main__form__input--text" name="message" rows="4" placeholder="Add a new comment" onKeyDown={inputHandler} required></textarea>
 
             <button type="submit" className="comments__main__form__button" id="submit-btn">COMMENT</button>
           </form>
@@ -105,10 +234,13 @@ function HomePage() {
               commentsList.map((comment) => (
                 <Comments
                   key={comment.id}
+                  id={comment.id}
                   name={comment.name}
                   message={comment.comment}
                   date={comment.timestamp}
                   likes={comment.likes}
+                  incrementLikes={likeHandler}
+                  deleteComment={deleteHandler}
                 />
               ))
           ) : null
