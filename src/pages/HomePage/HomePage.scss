@@ -15,7 +15,7 @@
   &__title {
     background-color: $Opaque-Black;
     height: 100%;
-    width: 100%;
+    width: fill;
 
     margin: 0;
     padding-left: 1rem;
@@ -416,10 +416,10 @@
     }
 
     &__main {
-      padding: 30vw;
+      padding: 28vw;
       padding-top: 0;
       padding-bottom: 3rem;
-      width: 50%;  
+      width: 42%;  
 
       &__photo {
         @include desktop_tablet_avatar;

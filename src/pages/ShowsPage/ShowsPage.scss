@@ -2,3 +2,117 @@
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
+
+.shows-hero {
+  width:auto;
+  height: auto;
+
+  background-image: url('../../assets/Images/hero-shows.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  &__content {
+    background-color: $Opaque-Black;
+    height: 100%;
+    width: fill;
+
+    margin: 0;
+    padding: 1rem;
+    align-content: center;
+    
+    &__title{
+      @include mobile-header-font;
+      color: $White;
+      width: 15rem;
+    }
+
+    &__desc {
+      @include subheader-font;
+      color: $White;
+    }
+
+    &__music {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+
+  @include tablet {
+    background-position: bottom;
+    width: auto;
+    height: auto;
+
+    &__content {
+      padding: 2.25rem;
+
+      &__desc {
+        @include subheader-font;
+      }
+
+      &__title {
+        @include page-header-font;
+        margin-top: 0;
+        width: 40rem;
+      }
+      
+      &__music {
+        width: 60%;
+        padding-bottom: 2.25rem;
+      }
+    }
+  }
+
+  @include desktop {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 65vh;
+
+    &__content {
+      padding: 2.25rem 6.25rem;
+      width: fill;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &__desc {
+        @include subheader-font;
+      }
+
+      &__title {
+        @include page-header-font;
+        margin-top: 0;
+        width: 40rem;
+      }
+      
+      &__music {
+        width: 40%;
+        padding-bottom: 2.25rem;
+      }
+    }
+  }
+}
+
+.music-player {
+  font-size: 10px;
+  color: #cccccc;
+  line-break: anywhere;
+  word-break: normal;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+  font-weight: 100;
+  
+  &__link-one {
+    color: #cccccc;
+    text-decoration: none;
+  }
+
+  &__link-two {
+    color: #cccccc;
+    text-decoration: none;
+  }
+}
