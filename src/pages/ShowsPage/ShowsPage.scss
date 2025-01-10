@@ -3,6 +3,54 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+table {
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+tr {
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2.25rem; 
+  }
+
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2.25rem; 
+  }
+
+}
+
+#header1, #header2, #header3 {
+  visibility: hidden;
+
+  @include tablet {
+    visibility: visible;
+    padding-left: 2.25rem;
+    width: 15vw;
+    border: none;
+  }
+
+  @include desktop {
+    visibility: visible;
+    padding-left: 2.25rem;
+    width: 10.5vw;
+    border: none;
+  }
+
+}
+
 .shows-hero {
   width:auto;
   height: auto;
@@ -14,7 +62,7 @@
 
   &__content {
     background-color: $Opaque-Black;
-    height: 100%;
+    height: fill;
     width: fill;
 
     margin: 0;
@@ -33,6 +81,7 @@
     }
 
     &__music {
+      width: 75vw;
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
@@ -45,6 +94,7 @@
 
     &__content {
       padding: 2.25rem;
+      height: fill;
 
       &__desc {
         @include subheader-font;
@@ -67,10 +117,10 @@
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 65vh;
 
     &__content {
       padding: 2.25rem 6.25rem;
+      height: 30rem;
       width: fill;
 
       display: flex;
@@ -115,4 +165,130 @@
     color: #cccccc;
     text-decoration: none;
   }
+}
+
+.shows {
+  &__title {
+    @include mobile-header-font;
+    padding: 1rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  &__table {
+    padding-bottom: 1rem;
+    
+    &__header {
+      width: 50vw;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      padding-left: 1rem;
+
+      &--first {
+        @extend .shows__table__header;
+        padding-top: 1rem;
+      }
+    }
+
+    &__data {
+      width: 50vw;;
+      display: flex;
+      flex-direction: column;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-bottom: 1rem;
+
+      &__button {
+        @extend .shows__table__data;
+        @include mobile-labels-buttons-font;
+        height: 40px;
+        border-radius: 4px;
+        background-color: $Light-Black;
+        color: $White;
+
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &--first {
+        @extend .shows__table__data;
+        font-family: Avenir-Next-Bold;
+      }
+
+      &--last {
+        @extend .shows__table__data;
+        width: auto;
+        border-bottom: 1px solid $Mercury;
+      }
+    }
+  }
+
+  @include tablet {
+    &__title {
+        @include section-header-font;
+        padding: 2.25rem;
+        margin-bottom: 0;
+    }
+
+    &__table {
+      padding-bottom: 2.25rem;
+      padding-right: 2.25rem;
+      padding-left: 2.25rem;
+
+
+      &__header {
+        visibility: hidden;
+        width: 0;
+      }
+      
+      &__data {
+        width: 20vw;
+        padding-left: 0;
+        padding-right: 0;
+        border-bottom: 1px solid $Mercury;
+      }
+    }
+  }
+  
+  @include desktop {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+
+    &__title {
+      @include section-header-font;
+      padding: 6.25rem;
+      padding-top: 0;
+      padding-right: 0;
+      margin: 0;
+      margin-top: 1rem;
+    }
+
+    &__table {
+      padding-bottom: 2.25rem;
+      padding-right: 2.25rem;
+      padding-left: 3rem;
+
+
+      &__header {
+        visibility: hidden;
+        width: 0;
+      }
+      
+      &__data {
+        width: 14vw;
+        padding-left: 0;
+        padding-right: 0;
+        border-bottom: 1px solid $Mercury;
+      }
+    }
+  }
+}
+
+.table-cursor {
+  cursor: pointer;
 }
