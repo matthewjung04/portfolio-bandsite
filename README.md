@@ -1,5 +1,3 @@
-# BandSite Project
-
 <h1>Bandsite Project</h1>
 
 <h2>Acknowledgement</h2>
