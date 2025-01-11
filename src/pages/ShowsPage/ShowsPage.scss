@@ -51,6 +51,25 @@ tr {
 
 }
 
+#header1 {
+  padding-left: 1.25rem;
+  text-align: left;
+  font-family: Avenir-Next-Demi;
+  color: $Silver;
+}
+
+#header2 {
+  padding-left: 1.25rem;
+  font-family: Avenir-Next-Demi;
+  color: $Silver;
+}
+
+#header3 {
+  padding-left: 4rem;
+  font-family: Avenir-Next-Demi;
+  color: $Silver;
+}
+
 .shows-hero {
   width:auto;
   height: auto;
@@ -180,7 +199,6 @@ tr {
 
   &__table {
     padding-bottom: 1rem;
-    border-bottom: 1px solid $Mercury;
     
     &__header {
       width: 50vw;
@@ -216,6 +234,7 @@ tr {
         padding: 0;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
       }
 
       &--first {
@@ -253,7 +272,10 @@ tr {
         width: 20vw;
         padding-left: 0;
         padding-right: 0;
-        border-bottom: 1px solid $Mercury;
+
+        &--last {
+          border: none;
+        }
       }
     }
   }
@@ -288,32 +310,34 @@ tr {
         width: 14vw;
         padding-left: 0;
         padding-right: 0;
-        border-bottom: 1px solid $Mercury;
+       
+        &--last {
+          border: none;
+        }
       }
     }
   }
 }
 
-.table-cursor {
+.table-block {
   cursor: pointer;
   width: 90vw;
+
+  &:hover {
+    background-color: $Alabaster;
+  }
+
+  @include tablet {
+    border-bottom: 1px solid $Mercury;
+  }
+
+  @include desktop {
+    width: 60vw;
+    border-bottom: 1px solid $Mercury;
+  }
 }
 
-#header1 {
-  padding-left: 1.25rem;
-  text-align: left;
-  font-family: Avenir-Next-Demi;
-  color: $Silver;
-}
 
-#header2 {
-  padding-left: 1.25rem;
-  font-family: Avenir-Next-Demi;
-  color: $Silver;
-}
-
-#header3 {
-  padding-left: 4rem;
-  font-family: Avenir-Next-Demi;
-  color: $Silver;
+.active-state {
+  background-color: $Mercury;
 }

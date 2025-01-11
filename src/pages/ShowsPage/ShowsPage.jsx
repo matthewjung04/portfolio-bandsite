@@ -13,7 +13,33 @@ function ShowsPage() {
     }
     fetchShows();
   },[])
-  console.log(shows)
+
+  const clickHandler = (e) => {
+
+    const rowID = e.target.id;
+    let selectRow = document.getElementById(rowID);
+    selectRow.classList.remove('table-block')
+    selectRow.classList.add('active-state');
+
+    const tagList = document.getElementsByClassName('active-state');
+    if(tagList.length>1) {
+      if(tagList[0].id == rowID) {
+        const unSelectRow  = document.getElementById(tagList[1].id);
+        unSelectRow.classList.remove('active-state')
+      } else if(tagList[1].id == rowID) {
+        const unSelectRow  = document.getElementById(tagList[0].id);
+        unSelectRow.classList.remove('active-state')
+      }
+    }
+  }
+
+  const exitHandler = (e) => {
+    const rowID = e.target.id;
+    let selectRow = document.getElementById(rowID);
+    selectRow.classList.add('table-block')
+  }
+
+
   return (
     <section>
       <article className="shows-hero">
@@ -50,18 +76,18 @@ function ShowsPage() {
             {
               shows ? (
                 shows.map((show) => (
-                  <tr key={show.id} id={show.id} className='table-cursor'>
-                    <th className='shows__table__header--first'>DATE</th>
-                    <td className='shows__table__data--first'>{new Date(show.date).toDateString()}</td>
+                  <tr key={show.id} id={show.id} className='table-block' onClick={clickHandler} onMouseOut={exitHandler}>
+                    <th id={show.id} className='shows__table__header--first'>DATE</th>
+                    <td id={show.id} className='shows__table__data--first'>{new Date(show.date).toDateString()}</td>
                     
-                    <th className='shows__table__header'>VENUE</th>
-                    <td className='shows__table__data'>{show.place}</td>
+                    <th id={show.id} className='shows__table__header'>VENUE</th>
+                    <td id={show.id} className='shows__table__data'>{show.place}</td>
 
-                    <th className='shows__table__header'>LOCATION</th>
-                    <td className='shows__table__data'>{show.location}</td>
+                    <th id={show.id} className='shows__table__header'>LOCATION</th>
+                    <td id={show.id} className='shows__table__data'>{show.location}</td>
 
-                    <td className='shows__table__data--last'>
-                      <button type='button' className='shows__table__data__button'>BUY TICKETS</button>
+                    <td id={show.id} className='shows__table__data--last'>
+                      <button type='button' id={show.id} className='shows__table__data__button'>BUY TICKETS</button>
                     </td>
                   </tr>
                 ))
