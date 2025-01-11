@@ -81,7 +81,7 @@ tr {
     }
 
     &__music {
-      width: 75vw;
+      width: 90vw;
       padding-top: 1rem;
       padding-bottom: 1rem;
     }
@@ -168,6 +168,9 @@ tr {
 }
 
 .shows {
+  width: 100vw;
+  overflow-x: hidden;
+
   &__title {
     @include mobile-header-font;
     padding: 1rem;
@@ -177,6 +180,7 @@ tr {
 
   &__table {
     padding-bottom: 1rem;
+    border-bottom: 1px solid $Mercury;
     
     &__header {
       width: 50vw;
@@ -204,6 +208,7 @@ tr {
         @extend .shows__table__data;
         @include mobile-labels-buttons-font;
         height: 40px;
+        width: 90vw;
         border-radius: 4px;
         background-color: $Light-Black;
         color: $White;
@@ -220,8 +225,8 @@ tr {
 
       &--last {
         @extend .shows__table__data;
-        width: auto;
         border-bottom: 1px solid $Mercury;
+        width: 100vw;
       }
     }
   }
@@ -291,4 +296,24 @@ tr {
 
 .table-cursor {
   cursor: pointer;
+  width: 90vw;
+}
+
+#header1 {
+  padding-left: 1.25rem;
+  text-align: left;
+  font-family: Avenir-Next-Demi;
+  color: $Silver;
+}
+
+#header2 {
+  padding-left: 1.25rem;
+  font-family: Avenir-Next-Demi;
+  color: $Silver;
+}
+
+#header3 {
+  padding-left: 4rem;
+  font-family: Avenir-Next-Demi;
+  color: $Silver;
 }

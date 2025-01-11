@@ -23,7 +23,7 @@ function ShowsPage() {
             <h1 className="shows-hero__content__title"> Stripes of Yellow x For The Stings</h1>
           </div>
 
-          {/* <div className="shows-hero__content__music">
+          <div className="shows-hero__content__music">
             <iframe
               width="100%" height="166"
               scrolling="no" frameBorder="no" allow="autoplay"
@@ -34,11 +34,11 @@ function ShowsPage() {
               ·
               <a href="https://soundcloud.com/rose-music-official/apt" title="APT." target="_blank" className="music-player__link-two">APT.</a>
             </div>
-          </div> */}
+          </div>
         </div>
       </article>
 
-      {/* <article className="shows">
+      <article className="shows">
         <h1 className="shows__title">Shows</h1>
         <table className="shows__table">
           <tbody>
@@ -69,7 +69,7 @@ function ShowsPage() {
             }
           </tbody>
         </table>
-      </article> */}
+      </article>
     </section>
   )
 }
