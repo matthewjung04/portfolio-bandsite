@@ -8,7 +8,7 @@ const apiHeader = {
 export class BandSiteApi {
   /* Axios call url and key parameters */
   constructor() {
-    this.baseUrl = import.meta.env.URL || 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
+    this.baseUrl = import.meta.env.VITE_API_URL || 'https://unit-2-project-api-25c1595833b2.herokuapp.com/';
 
     const key = import.meta.envAPI_KEY || '2a144518-c839-4362-8e6c-6c0c2e073bd7';
     this.apiKey = `/?api_key=${key}`;
