@@ -1,6 +1,6 @@
-import facebookIcon from '../../assets/Icons/SVG/icon-facebook.svg'
-import instagramIcon from '../../assets/Icons/SVG/icon-instagram.svg'
-import twitterIcon from '../../assets/Icons/SVG/icon-twitter.svg'
+import facebookIcon from '../../assets/Icons/SVG/Icon-facebook.svg'
+import instagramIcon from '../../assets/Icons/SVG/icon-Instagram.svg'
+import twitterIcon from '../../assets/Icons/SVG/Icon-twitter.svg'
 import bandLogo from '../../assets/Logo/Logo-bandsite.svg'
 import './Footer.scss'
 
